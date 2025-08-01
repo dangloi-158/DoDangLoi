@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý giao dịch</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .table thead th {
+      background-color: #333;
+      color: white;
+    }
+    .popup-form {
+      display: none;
+      position: fixed;
+      z-index: 1050;
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      width: 400px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+    }
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4);
+      z-index: 1040;
+    }
+    .footer {
+      background-color: #002366;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid p-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4>Trường Đại học Thủy lợi</h4>
+    <div>
+      <button class="btn btn-primary me-2" onclick="openForm()">➕ Thêm</button>
+      <button class="btn btn-secondary me-2">⭳ Xuất ra file</button>
+      <input type="text" placeholder="Tìm kiếm giao dịch" class="form-control d-inline-block" style="width: 250px;">
+      <button class="btn btn-success ms-2">TÌM KIẾM</button>
+    </div>
+  </div>
+
+  <table class="table table-bordered table-hover align-middle text-center">
+    <thead>
+      <tr>
+        <th>Hành động</th>
+        <th>Khách hàng</th>
+        <th>Nhân viên</th>
+        <th>Số tiền</th>
+        <th>Ngày mua</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <button class="btn btn-sm btn-warning">✏️</button>
+          <button class="btn btn-sm btn-danger">🗑️</button>
+        </td>
+        <td>Nguyễn Văn A</td>
+        <td>Mai Thư Anh</td>
+        <td>250.000</td>
+        <td>01/08/2025</td>
+      </tr>
+      <tr>
+        <td>
+          <button class="btn btn-sm btn-warning">✏️</button>
+          <button class="btn btn-sm btn-danger">🗑️</button>
+        </td>
+        <td>Hoàng Thị Hồng</td>
+        <td>Nguyễn Văn Hồng</td>
+        <td>650.000</td>
+        <td>06/07/2024</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Overlay và Form -->
+<div class="overlay" id="overlay" onclick="closeForm()"></div>
+<div class="popup-form" id="popupForm">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="m-0">Thêm giao dịch</h5>
+    <button class="btn-close" onclick="closeForm()"></button>
+  </div>
+  <form id="formThem">
+    <div class="mb-3">
+      <label>Khách hàng</label>
+      <input type="text" class="form-control" id="khachHang" required maxlength="30">
+    </div>
+    <div class="mb-3">
+      <label>Nhân viên</label>
+      <input type="text" class="form-control" id="nhanVien" required maxlength="30">
+    </div>
+    <div class="mb-3">
+      <label>Số tiền</label>
+      <input type="number" class="form-control" id="soTien" required>
+    </div>
+    <div class="text-end">
+      <button type="button" class="btn btn-secondary" onclick="closeForm()">Hủy</button>
+      <button type="submit" class="btn btn-success">Thêm</button>
+    </div>
+  </form>
+</div>
+
+<div class="footer">
+  Địa chỉ: 175 Tây Sơn, Đống Đa, Hà Nội — © Trường Đại học Thủy lợi
+</div>
+
+<script>
+  function openForm() {
+    document.getElementById("popupForm").style.display = "block";
+    document.getElementById("overlay").style.display = "block";
+  }
+
+  function closeForm() {
+    document.getElementById("popupForm").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("formThem").reset();
+  }
+</script>
+
+</body>
+</html>
