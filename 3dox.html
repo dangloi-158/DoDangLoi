@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý Nhân viên</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f8f9fa; }
+    .header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .table th, .table td {
+      vertical-align: middle;
+    }
+    .btn-add {
+      background-color: #3399ff;
+      color: white;
+      font-weight: bold;
+    }
+    .btn-add i { margin-right: 4px; }
+    .footer {
+      background-color: #002366;
+      color: white;
+      padding: 12px 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div><strong>Trường Đại học Thủy lợi</strong></div>
+  <div class="d-flex">
+    <button class="btn btn-outline-light btn-sm me-2">Trang chủ</button>
+    <button class="btn btn-outline-light btn-sm me-2">Quản lý cửa hàng</button>
+    <input type="text" class="form-control form-control-sm me-2" placeholder="Nhập nội dung tìm kiếm">
+    <button class="btn btn-success btn-sm">TÌM KIẾM</button>
+  </div>
+</div>
+
+<div class="container mt-3">
+  <div class="d-flex justify-content-between mb-3">
+    <div>
+      <button class="btn btn-add me-2" id="openAddForm"><i class="bi bi-plus-lg"></i> THÊM MỚI</button>
+      <button class="btn btn-outline-secondary"> <i class="bi bi-download"></i> XUẤT RA FILE</button>
+    </div>
+    <div class="d-flex align-items-center">
+      <button class="btn btn-outline-dark me-1"><i class="bi bi-chevron-right"></i></button>
+      <input type="text" class="form-control form-control-sm me-1" placeholder="Tìm kiếm theo Tên">
+      <button class="btn btn-outline-dark"><i class="bi bi-search"></i></button>
+    </div>
+    <div>
+      <label>Kết quả</label>
+      <select class="form-select form-select-sm">
+        <option>5</option>
+        <option>10</option>
+        <option>20</option>
+      </select>
+    </div>
+  </div>
+
+  <table class="table table-bordered align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th><input type="checkbox"></th>
+        <th>Hành động</th>
+        <th>STT</th>
+        <th>Tên</th>
+        <th>Họ đệm</th>
+        <th>Địa chỉ</th>
+        <th>Hoạt động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>
+          <button class="btn btn-primary btn-sm"><i class="bi bi-eye"></i></button>
+          <button class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></button>
+          <button class="btn btn-danger btn-sm"><i class="bi bi-x-lg"></i></button>
+        </td>
+        <td>1</td>
+        <td>Mai</td>
+        <td>Thục Anh</td>
+        <td>23 Hoàng Đạo Thúy, Thanh Xuân, Hà Nội</td>
+        <td><i class="bi bi-check2 text-success"></i></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>
+          <button class="btn btn-primary btn-sm"><i class="bi bi-eye"></i></button>
+          <button class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></button>
+          <button class="btn btn-danger btn-sm"><i class="bi bi-x-lg"></i></button>
+        </td>
+        <td>2</td>
+        <td>Hoàng</td>
+        <td>Sinh Hồng</td>
+        <td>23 Hoàng Đạo Thúy, Thanh Xuân, Hà Nội</td>
+        <td><i class="bi bi-x-lg text-danger"></i></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>
+          <button class="btn btn-primary btn-sm"><i class="bi bi-eye"></i></button>
+          <button class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></button>
+          <button class="btn btn-danger btn-sm"><i class="bi bi-x-lg"></i></button>
+        </td>
+        <td>3</td>
+        <td>Tính</td>
+        <td>Mai Trung</td>
+        <td>1411 Đường Láng, Cầu Giấy, Hà Nội</td>
+        <td><i class="bi bi-check2 text-success"></i></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>
+          <button class="btn btn-primary btn-sm"><i class="bi bi-eye"></i></button>
+          <button class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></button>
+          <button class="btn btn-danger btn-sm"><i class="bi bi-x-lg"></i></button>
+        </td>
+        <td>4</td>
+        <td>Hồng</td>
+        <td>Nguyễn Văn</td>
+        <td>1411 Đường Láng, Cầu Giấy, Hà Nội</td>
+        <td><i class="bi bi-x-lg text-danger"></i></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-end small">Kết quả 1 đến 4</div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <strong>TRƯỜNG ĐẠI HỌC THỦY LỢI</strong><br>
+  Địa chỉ: 175 Tây Sơn, Đống Đa, Hà Nội<br>
+  Điện thoại: (024) 38522201 - Fax: (024) 35633351<br>
+  Email: phongctcth@tlu.edu.vn
+</div>
+
+</body>
+</html>
